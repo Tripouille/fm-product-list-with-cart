@@ -1,5 +1,13 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import { appRepositoriesSymbol } from "./composables/useAppRepositories";
+import { AppRepositories } from "./repositories/appRepositories";
+import { InMemoryProductRepository } from "./repositories/inMemoryProductRepository";
+import "./style.css";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+const appRepositories: AppRepositories = {
+  productRepository: InMemoryProductRepository,
+};
+app.provide(appRepositoriesSymbol, appRepositories);
+app.mount("#app");
