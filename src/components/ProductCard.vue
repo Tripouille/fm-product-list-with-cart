@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { Product } from "@/repositories/productRepository";
+import { formatPrice } from "@/utils/format";
+import { computed } from "vue";
 
 const props = defineProps<Product>();
+
+const formattedPrice = computed(() => formatPrice(props.price));
 </script>
 
 <template>
@@ -15,7 +19,7 @@ const props = defineProps<Product>();
     <figcaption>
       <p class="category text-preset-4">{{ props.category }}</p>
       <h2 class="name text-preset-3">{{ props.name }}</h2>
-      <p class="price text-preset-3">{{ props.price }}</p>
+      <p class="price text-preset-3">{{ formattedPrice }}</p>
     </figcaption>
   </figure>
 </template>
