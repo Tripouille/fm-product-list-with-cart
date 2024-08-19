@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useShoppingCart } from "@/composables/useShoppingCart";
 import { Product } from "@/repositories/productRepository";
 import { formatPrice } from "@/utils/format";
 import { computed } from "vue";
@@ -6,6 +7,17 @@ import { computed } from "vue";
 const props = defineProps<Product>();
 
 const formattedPrice = computed(() => formatPrice(props.price));
+const { getShoppingCartProductQuantity, updateShoppingCartOrder } =
+  useShoppingCart();
+const quantity = computed(() => getShoppingCartProductQuantity(props));
+
+function handleAddToCart() {
+  updateShoppingCartOrder({
+    ...props,
+    type: "product",
+    quantity: quantity.value + 1,
+  });
+}
 </script>
 
 <template>
@@ -17,13 +29,16 @@ const formattedPrice = computed(() => formatPrice(props.price));
         height="262"
         width="250"
       />
-      <button class="add-to-cart-button text-preset-4-bold">
+      <button
+        class="add-to-cart-button text-preset-4-bold"
+        @click="handleAddToCart"
+      >
         <img
           src="/assets/images/icon-add-to-cart.svg"
           alt=""
           aria-hidden="true"
         />
-        <span>Add to cart</span>
+        <span>Add to cart {{ quantity }}</span>
       </button>
     </div>
     <div class="informations">
