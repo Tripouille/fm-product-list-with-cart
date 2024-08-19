@@ -25,7 +25,6 @@ export function useShoppingCart(
       .getShoppingCart()
       .then((result) => (shoppingCart.value = result));
   };
-  syncShoppingCart();
 
   const getShoppingCartProductQuantity = (
     shoppingCartProduct: ShoppingCartProduct
@@ -39,7 +38,7 @@ export function useShoppingCart(
 
     return quantity;
   };
-  
+
   const updateShoppingCartOrder = async (
     shoppingCartOrder: ShoppingCartOrder
   ) => {
@@ -47,6 +46,7 @@ export function useShoppingCart(
     return syncShoppingCart();
   };
 
+  syncShoppingCart();
   return {
     shoppingCart: readonly(shoppingCart),
     getShoppingCartProductQuantity,
