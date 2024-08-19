@@ -9,7 +9,7 @@ const { products } = useProducts();
     <h1>Desserts</h1>
     <ul>
       <li v-for="product in products">
-        <ProductCard v-bind="product" />
+        <ProductCard :="product" />
       </li>
     </ul>
   </main>
@@ -17,7 +17,7 @@ const { products } = useProducts();
 
 <style scoped>
 h1 {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spc-300);
 }
 main {
   max-width: 76rem;
@@ -29,7 +29,7 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: var(--spc-300);
 
   li {
     list-style: none;
