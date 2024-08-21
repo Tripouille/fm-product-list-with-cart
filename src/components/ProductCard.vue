@@ -48,18 +48,18 @@ function handleUpdateQuantity(quantity: Quantity) {
 section {
   width: 15.625rem;
 
-  .in-shopping-cart {
-    border-radius: 0.6rem;
-    outline: 2px solid var(--clr-red);
-  }
-
   .img-wrapper {
+    &.in-shopping-cart {
+      outline: 2px solid var(--clr-red);
+    }
+
     position: relative;
     margin-bottom: 2.375rem;
     height: 16.375rem;
+    border-radius: 0.5rem;
 
     img {
-      border-radius: 0.5rem;
+      border-radius: inherit;
       height: 100%;
       width: 100%;
     }
