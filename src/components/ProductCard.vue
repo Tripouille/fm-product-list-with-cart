@@ -24,7 +24,7 @@ function handleUpdateQuantity(quantity: Quantity) {
 
 <template>
   <section>
-    <div class="img-wrapper">
+    <div class="img-wrapper" :class="[{ 'in-shopping-cart': quantity }]">
       <img
         :src="props.image.desktop"
         :alt="props.name"
@@ -48,6 +48,11 @@ function handleUpdateQuantity(quantity: Quantity) {
 section {
   width: 15.625rem;
 
+  .in-shopping-cart {
+    border-radius: 0.6rem;
+    outline: 2px solid var(--clr-red);
+  }
+
   .img-wrapper {
     position: relative;
     margin-bottom: 2.375rem;
@@ -56,6 +61,7 @@ section {
     img {
       border-radius: 0.5rem;
       height: 100%;
+      width: 100%;
     }
   }
 
