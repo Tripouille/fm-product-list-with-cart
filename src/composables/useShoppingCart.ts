@@ -8,17 +8,20 @@ import {
 import { readonly, ref } from "vue";
 import { useAppRepositories } from "./useAppRepositories";
 
+const shoppingCart = ref<ShoppingCart>([]);
+let initialSyncDone = false;
+
 /** The Shopping cart contains shopping cart orders */
 export function useShoppingCart(
   appRepositories?: Pick<AppRepositories, "shoppingCartRepository">
 ) {
-  const shoppingCart = ref<ShoppingCart>([]);
   const { shoppingCartRepository } = appRepositories ?? useAppRepositories();
 
   const syncShoppingCart = () => {
-    shoppingCartRepository
-      .getShoppingCart()
-      .then((result) => (shoppingCart.value = result));
+    shoppingCartRepository.getShoppingCart().then((data) => {
+      initialSyncDone = true;
+      shoppingCart.value = data;
+    });
   };
 
   const getShoppingCartProductQuantity = (
@@ -41,10 +44,11 @@ export function useShoppingCart(
     return syncShoppingCart();
   };
 
-  syncShoppingCart();
+  if (!initialSyncDone) syncShoppingCart();
   return {
     shoppingCart: readonly(shoppingCart),
     getShoppingCartProductQuantity,
     updateShoppingCartOrder,
+    refetch: syncShoppingCart,
   };
 }
