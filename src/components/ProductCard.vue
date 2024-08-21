@@ -26,8 +26,8 @@ function handleUpdateQuantity(quantity: Quantity) {
   <section>
     <div class="img-wrapper" :class="[{ 'in-shopping-cart': quantity }]">
       <img
-        :src="props.image.desktop"
-        :alt="props.name"
+        :src="image.desktop"
+        :alt="name"
         height="262"
         width="250"
       />
@@ -37,8 +37,8 @@ function handleUpdateQuantity(quantity: Quantity) {
       />
     </div>
     <div class="informations">
-      <p class="category text-preset-4">{{ props.category }}</p>
-      <h2 class="name text-preset-3">{{ props.name }}</h2>
+      <p class="category text-preset-4">{{ category }}</p>
+      <h2 class="name text-preset-3">{{ name }}</h2>
       <p class="price text-preset-3">{{ formattedPrice }}</p>
     </div>
   </section>
