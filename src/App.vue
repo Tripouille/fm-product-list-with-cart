@@ -1,38 +1,19 @@
 <script setup lang="ts">
-import ProductCard from "./components/ProductCard.vue";
-import { useProducts } from "./composables/useProducts";
-const { products } = useProducts();
+import Desserts from "./components/Desserts.vue";
 </script>
 
 <template>
   <main>
-    <h1>Desserts</h1>
-    <ul>
-      <li v-for="product in products">
-        <ProductCard :="product" />
-      </li>
-    </ul>
+    <Desserts />
   </main>
 </template>
 
 <style scoped>
-h1 {
-  margin-bottom: var(--spc-300);
-}
 main {
   max-width: 76rem;
   margin: 0 auto;
   padding: 5.5rem 7rem;
-}
-ul {
-  max-width: 50rem;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--spc-300);
-
-  li {
-    list-style: none;
-  }
+  gap: var(--spc-400);
 }
 </style>
