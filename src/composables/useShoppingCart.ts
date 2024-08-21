@@ -5,7 +5,7 @@ import {
   ShoppingCartOrder,
   ShoppingCartProduct,
 } from "@/repositories/shoppingCartRepository";
-import { readonly, ref } from "vue";
+import { computed, readonly, ref } from "vue";
 import { useAppRepositories } from "./useAppRepositories";
 
 const shoppingCart = ref<ShoppingCart>([]);
@@ -44,11 +44,18 @@ export function useShoppingCart(
     return syncShoppingCart();
   };
 
+  const totalQuantity = computed(() => {
+    return shoppingCart.value.reduce((acc, order) => {
+      return acc + order.quantity;
+    }, 0);
+  });
+
   if (!initialSyncDone) syncShoppingCart();
   return {
     shoppingCart: readonly(shoppingCart),
+    refetch: syncShoppingCart,
     getShoppingCartProductQuantity,
     updateShoppingCartOrder,
-    refetch: syncShoppingCart,
+    totalQuantity,
   };
 }
