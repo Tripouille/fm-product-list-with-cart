@@ -81,9 +81,14 @@ function handleDecrementQuantity() {
 }
 
 .adjust-quantity-buttons-wrapper {
-  justify-content: space-between;
+  align-items: center;
   background-color: var(--clr-red);
   color: var(--clr-white);
+
+  span {
+    flex-grow: 1;
+    text-align: center;
+  }
 
   button {
     background-color: var(--clr-red);
