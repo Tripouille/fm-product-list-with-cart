@@ -25,12 +25,7 @@ function handleUpdateQuantity(quantity: Quantity) {
 <template>
   <section>
     <div class="img-wrapper" :class="[{ 'in-shopping-cart': quantity }]">
-      <img
-        :src="image.desktop"
-        :alt="name"
-        height="262"
-        width="250"
-      />
+      <img :src="image.desktop" :alt="name" height="262" width="250" />
       <AddToCartButton
         :quantity="quantity"
         @update-quantity="handleUpdateQuantity"
@@ -47,24 +42,6 @@ function handleUpdateQuantity(quantity: Quantity) {
 <style lang="scss" scoped>
 section {
   width: 15.625rem;
-
-  .img-wrapper {
-    &.in-shopping-cart {
-      outline: 2px solid var(--clr-red);
-    }
-
-    position: relative;
-    margin-bottom: 2.375rem;
-    height: 16.375rem;
-    border-radius: 0.5rem;
-
-    img {
-      border-radius: inherit;
-      height: 100%;
-      width: 100%;
-    }
-  }
-
   .informations {
     display: flex;
     flex-direction: column;
@@ -80,6 +57,23 @@ section {
 
     .price {
       color: var(--clr-red);
+    }
+  }
+
+  .img-wrapper {
+    position: relative;
+    margin-bottom: 2.375rem;
+    height: 16.375rem;
+    border-radius: 0.5rem;
+
+    img {
+      border-radius: inherit;
+      height: 100%;
+      width: 100%;
+    }
+
+    &.in-shopping-cart {
+      outline: 2px solid var(--clr-red);
     }
   }
 }
