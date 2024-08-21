@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import Desserts from "./components/Desserts.vue";
+import ShoppingCart from "./components/ShoppingCart.vue";
 </script>
 
 <template>
   <main>
     <Desserts />
+    <ShoppingCart />
   </main>
 </template>
 
