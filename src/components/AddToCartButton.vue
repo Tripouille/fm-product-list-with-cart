@@ -31,7 +31,7 @@ function handleDecrementQuantity() {
     <button @click="handleDecrementQuantity">
       <img
         src="/assets/images/icon-decrement-quantity.svg"
-        alt="decrement-quantity"
+        alt="decrement quantity"
         width="17"
         height="17"
       />
@@ -42,7 +42,7 @@ function handleDecrementQuantity() {
     <button @click="handleIncrementQuantity">
       <img
         src="/assets/images/icon-increment-quantity.svg"
-        alt="increment-quantity"
+        alt="increment quantity"
         width="17"
         height="17"
       />
