@@ -1,17 +1,12 @@
 import { AppRepositories } from "@/repositories/appRepositories";
-import { Product } from "@/repositories/productRepository";
-import { ShoppingCart } from "@/repositories/shoppingCartRepository";
+import {
+  Quantity,
+  ShoppingCart,
+  ShoppingCartOrder,
+  ShoppingCartProduct,
+} from "@/repositories/shoppingCartRepository";
 import { readonly, ref } from "vue";
 import { useAppRepositories } from "./useAppRepositories";
-
-export type Quantity = number;
-type ShoppingCartify<P, T extends string> = P & {
-  type: T;
-  quantity: Quantity;
-};
-export type ShoppingCartProduct = Product;
-export type ProductOrder = ShoppingCartify<Product, "product">;
-export type ShoppingCartOrder = ProductOrder;
 
 /** The Shopping cart contains shopping cart orders */
 export function useShoppingCart(
