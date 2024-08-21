@@ -12,7 +12,7 @@ import ShoppingCart from "./components/ShoppingCart.vue";
 
 <style scoped>
 main {
-  max-width: 76rem;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 5.5rem 7rem;
   display: flex;
