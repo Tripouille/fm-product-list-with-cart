@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useShoppingCart } from "@/composables/useShoppingCart";
 import { Product } from "@/repositories/productRepository";
+import { Quantity } from "@/repositories/shoppingCartRepository";
 import { formatPrice } from "@/utils/format";
 import { computed } from "vue";
+import AddToCartButton from "./AddToCartButton.vue";
 
 const props = defineProps<Product>();
 
@@ -11,11 +13,11 @@ const { getShoppingCartProductQuantity, updateShoppingCartOrder } =
   useShoppingCart();
 const quantity = computed(() => getShoppingCartProductQuantity(props));
 
-function handleAddToCart() {
+function handleUpdateQuantity(quantity: Quantity) {
   updateShoppingCartOrder({
     ...props,
     type: "product",
-    quantity: quantity.value + 1,
+    quantity,
   });
 }
 </script>
@@ -29,17 +31,10 @@ function handleAddToCart() {
         height="262"
         width="250"
       />
-      <button
-        class="add-to-cart-button text-preset-4-bold"
-        @click="handleAddToCart"
-      >
-        <img
-          src="/assets/images/icon-add-to-cart.svg"
-          alt=""
-          aria-hidden="true"
-        />
-        <span>Add to cart {{ quantity }}</span>
-      </button>
+      <AddToCartButton
+        :quantity="quantity"
+        @update-quantity="handleUpdateQuantity"
+      />
     </div>
     <div class="informations">
       <p class="category text-preset-4">{{ props.category }}</p>
@@ -61,22 +56,6 @@ section {
     img {
       border-radius: 0.5rem;
       height: 100%;
-    }
-
-    .add-to-cart-button {
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spc-100);
-      padding: var(--spc-150) var(--spc-300);
-      color: var(--clr-rose-900);
-      border: 1px solid var(--clr-rose-400);
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%, 50%);
-      text-wrap: nowrap;
-      border-radius: 9999px;
     }
   }
 
