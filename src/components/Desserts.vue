@@ -23,7 +23,7 @@ section {
   }
 
   ul {
-    max-width: 50rem;
+    width: 50rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
