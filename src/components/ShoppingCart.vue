@@ -79,6 +79,7 @@ aside {
   .order-total {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: var(--clr-rose-900);
     margin-top: 3.125rem;
   }
