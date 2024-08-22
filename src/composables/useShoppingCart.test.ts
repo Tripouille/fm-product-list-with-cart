@@ -72,4 +72,20 @@ describe(useShoppingCart.name, () => {
 
     expect(shoppingCart.value).toStrictEqual([updatedShoppingCartProduct]);
   });
+
+  test("remove the order from the shopping cart when the quantity is 0", async () => {
+    const { shoppingCart, updateShoppingCartOrder } =
+      useShoppingCart(appRepositories);
+    const shoppingCartProduct = {
+      id: "0",
+      quantity: 1,
+    } as ShoppingCartOrder;
+    await updateShoppingCartOrder(shoppingCartProduct);
+    await updateShoppingCartOrder({
+      ...shoppingCartProduct,
+      quantity: 0,
+    });
+
+    expect(shoppingCart.value).toStrictEqual([]);
+  });
 });

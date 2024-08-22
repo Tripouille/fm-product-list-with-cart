@@ -17,5 +17,7 @@ export class InMemoryShoppingCartRepository {
     } else {
       this.shoppingCart.push(shoppingCartOrder);
     }
+
+    this.shoppingCart = this.shoppingCart.filter((order) => order.quantity > 0);
   }
 }
