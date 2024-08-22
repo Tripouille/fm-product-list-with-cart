@@ -49,6 +49,7 @@ const formattedTotalPrice = computed(() => {
 
 <style lang="scss" scoped>
 aside {
+  padding: var(--spc-300);
   width: 100%;
 
   h2 {
