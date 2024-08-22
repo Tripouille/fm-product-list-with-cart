@@ -1,15 +1,24 @@
 <script setup lang="ts">
+import { useShoppingCart } from "@/composables/useShoppingCart";
 import { ShoppingCartOrder } from "@/repositories/shoppingCartRepository";
 import { formatPrice } from "@/utils/format";
 import { computed } from "vue";
 
 const props = defineProps<ShoppingCartOrder>();
+
 const formattedPrice = computed(() => {
   return formatPrice(props.price);
 });
+
 const formattedTotalPrice = computed(() => {
   return formatPrice(props.price * props.quantity);
 });
+
+const { updateShoppingCartOrder } = useShoppingCart();
+
+function handleRemoveProduct() {
+  updateShoppingCartOrder({ ...props, quantity: 0 });
+}
 </script>
 
 <template>
@@ -22,7 +31,7 @@ const formattedTotalPrice = computed(() => {
         >@ {{ formattedTotalPrice }}</span
       >
     </p>
-    <button class="remove-product-button">
+    <button class="remove-product-button" @click="handleRemoveProduct">
       <img
         src="/assets/images/icon-remove-item.svg"
         alt="remove product"
