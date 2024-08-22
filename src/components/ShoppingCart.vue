@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { useShoppingCart } from "@/composables/useShoppingCart";
+import { formatPrice } from "@/utils/format";
+import { computed } from "vue";
 import ShoppingCartOrder from "./ShoppingCartOrder.vue";
 
-const { totalQuantity, shoppingCart } = useShoppingCart();
+const { totalQuantity, totalPrice, shoppingCart } = useShoppingCart();
+const formattedTotalPrice = computed(() => {
+  return formatPrice(totalPrice.value);
+});
 </script>
 
 <template>
@@ -20,6 +25,10 @@ const { totalQuantity, shoppingCart } = useShoppingCart();
           <ShoppingCartOrder :="order" />
         </li>
       </ul>
+      <p class="order-total">
+        <span class="text-preset-4">Order Total</span>
+        <span class="text-preset-2">{{ formattedTotalPrice }}</span>
+      </p>
     </section>
   </aside>
 </template>
@@ -49,6 +58,13 @@ aside {
     display: flex;
     flex-direction: column;
     gap: var(--spc-400);
+  }
+
+  .order-total {
+    display: flex;
+    justify-content: space-between;
+    color: var(--clr-rose-900);
+    margin-top: 3.125rem;
   }
 }
 </style>

@@ -50,6 +50,12 @@ export function useShoppingCart(
     }, 0);
   });
 
+  const totalPrice = computed(() => {
+    return shoppingCart.value.reduce((acc, order) => {
+      return acc + order.quantity * order.price;
+    }, 0);
+  });
+
   if (!initialSyncDone) syncShoppingCart();
   return {
     shoppingCart: readonly(shoppingCart),
@@ -57,5 +63,6 @@ export function useShoppingCart(
     getShoppingCartProductQuantity,
     updateShoppingCartOrder,
     totalQuantity,
+    totalPrice,
   };
 }
