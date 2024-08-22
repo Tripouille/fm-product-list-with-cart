@@ -42,6 +42,7 @@ const formattedTotalPrice = computed(() => {
           <span class="text-preset-4-bold">carbon-neutral</span> delivery
         </p>
       </div>
+      <button class="confirm-order-button text-preset-3">Confirm Order</button>
     </section>
   </aside>
 </template>
@@ -91,6 +92,17 @@ aside {
     padding: var(--spc-200) 0;
     border-radius: 0.5rem;
     margin-top: var(--spc-300);
+  }
+  .confirm-order-button {
+    background-color: var(--clr-red);
+    color: var(--clr-white);
+    border-radius: 9999px;
+    border: none;
+    padding: var(--spc-200) 0;
+    cursor: pointer;
+    margin-top: var(--spc-300);
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
