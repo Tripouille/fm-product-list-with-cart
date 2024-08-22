@@ -29,6 +29,19 @@ const formattedTotalPrice = computed(() => {
         <span class="text-preset-4">Order Total</span>
         <span class="text-preset-2">{{ formattedTotalPrice }}</span>
       </p>
+      <div class="carbon-neutral-wrapper">
+        <img
+          src="/assets/images/icon-carbon-neutral.svg"
+          alt=""
+          aria-hidden="true"
+          height="20"
+          width="20"
+        />
+        <p class="text-preset-4">
+          This is a
+          <span class="text-preset-4-bold">carbon-neutral</span> delivery
+        </p>
+      </div>
     </section>
   </aside>
 </template>
@@ -47,6 +60,7 @@ aside {
     flex-direction: column;
     align-items: center;
     padding: var(--spc-200) 0;
+
     &__message {
       color: var(--clr-rose-500);
       text-align: center;
@@ -65,6 +79,18 @@ aside {
     justify-content: space-between;
     color: var(--clr-rose-900);
     margin-top: 3.125rem;
+  }
+
+  .carbon-neutral-wrapper {
+    background-color: var(--clr-rose-50);
+    color: var(--clr-rose-900);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spc-100);
+    padding: var(--spc-200) 0;
+    border-radius: 0.5rem;
+    margin-top: var(--spc-300);
   }
 }
 </style>
