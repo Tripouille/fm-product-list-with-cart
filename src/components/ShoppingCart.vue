@@ -1,19 +1,26 @@
 <script setup lang="ts">
 import { useShoppingCart } from "@/composables/useShoppingCart";
+import ShoppingCartOrder from "./ShoppingCartOrder.vue";
 
-const { totalQuantity } = useShoppingCart();
+const { totalQuantity, shoppingCart } = useShoppingCart();
 </script>
 
 <template>
   <aside>
     <h2 class="text-preset-2">Your Cart ({{ totalQuantity }})</h2>
-    <section class="empty-car" v-if="!totalQuantity">
+    <section class="empty-cart" v-if="!totalQuantity">
       <img src="/assets/images/illustration-empty-cart.svg" alt="empty cart" />
       <p class="empty-car__message text-preset-4-bold">
         Your added items will appear here
       </p>
     </section>
-    <section v-else></section>
+    <section v-else>
+      <ul class="cart-orders">
+        <li v-for="order in shoppingCart" :key="order.id">
+          <ShoppingCartOrder :="order" />
+        </li>
+      </ul>
+    </section>
   </aside>
 </template>
 
@@ -26,7 +33,7 @@ aside {
     margin-bottom: var(--spc-300);
   }
 
-  .empty-car {
+  .empty-cart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +42,13 @@ aside {
       color: var(--clr-rose-500);
       text-align: center;
     }
+  }
+
+  .cart-orders {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spc-400);
   }
 }
 </style>
