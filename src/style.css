@@ -89,7 +89,7 @@ before {
   box-sizing: border-box;
 }
 
-main {
+html {
   scrollbar-gutter: stable;
 }
 
