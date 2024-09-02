@@ -23,7 +23,6 @@ section {
   }
 
   ul {
-    width: 50rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

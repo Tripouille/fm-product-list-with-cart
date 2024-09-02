@@ -11,7 +11,7 @@ const formattedTotalPrice = computed(() => {
 </script>
 
 <template>
-  <aside>
+  <aside class="shopping-cart">
     <h2 class="text-preset-2">Your Cart ({{ totalQuantity }})</h2>
     <section class="empty-cart" v-if="!totalQuantity">
       <img src="/assets/images/illustration-empty-cart.svg" alt="empty cart" />
@@ -48,9 +48,8 @@ const formattedTotalPrice = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-aside {
+.shopping-cart {
   padding: var(--spc-300);
-  width: 100%;
 
   h2 {
     color: var(--clr-red);
