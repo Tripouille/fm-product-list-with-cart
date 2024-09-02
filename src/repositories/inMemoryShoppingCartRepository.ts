@@ -20,4 +20,8 @@ export class InMemoryShoppingCartRepository {
 
     this.shoppingCart = this.shoppingCart.filter((order) => order.quantity > 0);
   }
+
+  async cleanShoppingCart() {
+    this.shoppingCart = [];
+  }
 }

@@ -27,7 +27,7 @@
   --clr-rose-500: #87635a;
   --clr-rose-400: #ad8a85;
   --clr-rose-300: #caafa7;
-  --clr-rose-100: #f5eeec;
+  --clr-rose-100: #e4dddb;
   --clr-rose-50: #fcf8f6;
   --clr-green: #1ea575;
   --clr-black: #000;
@@ -42,6 +42,8 @@
   --spc-150: 0.75rem;
   --spc-100: 0.5rem;
   --spc-50: 0.25rem;
+
+  --zi-modal: 100;
 }
 
 .text-preset-1 {
@@ -85,4 +87,12 @@ before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+main {
+  scrollbar-gutter: stable;
+}
+
+body:has(div#modal:not(:empty)) {
+  overflow: hidden;
 }

@@ -11,6 +11,7 @@ export type ShoppingCartOrder = ProductOrder;
 export type ShoppingCart = ShoppingCartOrder[];
 
 export interface ShoppingCartRepository {
-    getShoppingCart(): Promise<ShoppingCart>;
-    updateShoppingCartOrder(shoppingCartOrder: ShoppingCartOrder): Promise<void>;
+  getShoppingCart(): Promise<ShoppingCart>;
+  updateShoppingCartOrder(shoppingCartOrder: ShoppingCartOrder): Promise<void>;
+  cleanShoppingCart(): Promise<void>;
 }

@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { useShoppingCart } from "@/composables/useShoppingCart";
 import { formatPrice } from "@/utils/format";
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import OrderConfirmedModal from "./OrderConfirmedModal.vue";
 import ShoppingCartOrder from "./ShoppingCartOrder.vue";
 
-const { totalQuantity, totalPrice, shoppingCart } = useShoppingCart();
+const { totalQuantity, totalPrice, shoppingCart, cleanShoppingCart } =
+  useShoppingCart();
 const formattedTotalPrice = computed(() => {
   return formatPrice(totalPrice.value);
 });
+const orderConfirmedModalIsOpen = ref(false);
+
+function handleStartNewOrder() {
+  cleanShoppingCart().then(() => (orderConfirmedModalIsOpen.value = false));
+}
 </script>
 
 <template>
@@ -42,8 +49,18 @@ const formattedTotalPrice = computed(() => {
           <span class="text-preset-4-bold">carbon-neutral</span> delivery
         </p>
       </div>
-      <button class="confirm-order-button text-preset-3">Confirm Order</button>
+      <button
+        class="confirm-order-button text-preset-3"
+        @click="orderConfirmedModalIsOpen = true"
+      >
+        Confirm Order
+      </button>
     </section>
+    <OrderConfirmedModal
+      :modal-is-open="orderConfirmedModalIsOpen"
+      @close-modal="orderConfirmedModalIsOpen = false"
+      @start-new-order="handleStartNewOrder"
+    />
   </aside>
 </template>
 

@@ -56,6 +56,11 @@ export function useShoppingCart(
     }, 0);
   });
 
+  async function cleanShoppingCart() {
+    await shoppingCartRepository.cleanShoppingCart();
+    return syncShoppingCart();
+  }
+
   if (!initialSyncDone) syncShoppingCart();
   return {
     shoppingCart: readonly(shoppingCart),
@@ -64,5 +69,6 @@ export function useShoppingCart(
     updateShoppingCartOrder,
     totalQuantity,
     totalPrice,
+    cleanShoppingCart,
   };
 }
