@@ -13,7 +13,11 @@ const emit = defineEmits<ModalEmits>();
 
 <template>
   <Teleport to="#modal">
-    <section v-if="modalIsOpen" class="backdrop" @click.self="emit('close-modal')">
+    <section
+      v-if="modalIsOpen"
+      class="backdrop"
+      @click.self="emit('close-modal')"
+    >
       <slot />
     </section>
   </Teleport>
@@ -24,12 +28,20 @@ const emit = defineEmits<ModalEmits>();
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: var(--zi-modal);
 
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media (min-width: 376px) {
+  .backdrop {
+    align-items: center;
+  }
 }
 </style>

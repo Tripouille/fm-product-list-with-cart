@@ -66,10 +66,10 @@ const formattedTotalPrice = computed(() => {
 
 <style lang="scss" scoped>
 .order-confirmed-modal-content {
-  width: 37rem;
+  width: min(37rem, 100%);
   max-height: 43rem;
-  padding: var(--spc-500);
-  border-radius: 0.75rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem 0.75rem 0 0;
   background-color: var(--clr-white);
   display: flex;
   flex-direction: column;
@@ -132,6 +132,14 @@ const formattedTotalPrice = computed(() => {
       border-radius: 9999px;
       color: white;
     }
+  }
+}
+
+@media (min-width: 376px) {
+  .order-confirmed-modal-content {
+    margin: var(--spc-500);
+    padding: var(--spc-500);
+    border-radius: 0.75rem;
   }
 }
 </style>
