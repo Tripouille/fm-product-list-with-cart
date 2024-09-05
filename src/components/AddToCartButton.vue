@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Quantity } from "@/repositories/shoppingCartRepository";
+import { Quantity } from "~/repositories/shoppingCartRepository";
 
 type AddToCartButtonProps = {
   quantity: Quantity;

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useFocusTrap } from "@vueuse/integrations/useFocusTrap.mjs";
+import { nextTick, ref, watch } from "vue";
 export type ModalProps = {
   modalIsOpen: boolean;
 };
@@ -7,16 +9,38 @@ export type ModalEmits = {
   (e: "close-modal"): void;
 };
 
-defineProps<ModalProps>();
+const props = defineProps<ModalProps>();
 const emit = defineEmits<ModalEmits>();
+
+const target = ref();
+const { activate, deactivate } = useFocusTrap(target, {
+  escapeDeactivates: true,
+  onDeactivate: () => {
+    emit("close-modal");
+  },
+});
+
+async function activateFocusTrapOnNextTick() {
+  await nextTick();
+  activate();
+}
+
+watch(
+  () => props.modalIsOpen,
+  (isOpen) => {
+    if (isOpen) activateFocusTrapOnNextTick();
+    else deactivate();
+  }
+);
 </script>
 
 <template>
   <Teleport to="#modal">
     <section
       v-if="modalIsOpen"
+      ref="target"
       class="backdrop"
-      @click.self="emit('close-modal')"
+      @click.self="() => deactivate()"
     >
       <slot />
     </section>

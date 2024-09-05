@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useShoppingCart } from "@/composables/useShoppingCart";
-import { formatPrice } from "@/utils/format";
 import { computed, ref } from "vue";
+import { useShoppingCart } from "~/composables/useShoppingCart";
+import { formatPrice } from "~/utils/format";
 import OrderConfirmedModal from "./OrderConfirmedModal.vue";
 import ShoppingCartOrder from "./ShoppingCartOrder.vue";
 
@@ -13,7 +13,8 @@ const formattedTotalPrice = computed(() => {
 const orderConfirmedModalIsOpen = ref(false);
 
 function handleStartNewOrder() {
-  cleanShoppingCart().then(() => (orderConfirmedModalIsOpen.value = false));
+  orderConfirmedModalIsOpen.value = false;
+  cleanShoppingCart();
 }
 </script>
 

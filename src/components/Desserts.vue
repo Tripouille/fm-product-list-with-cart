@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useProducts } from "@/composables/useProducts";
-import ProductCard from "./ProductCard.vue";
+import ProductCard from "~/components/ProductCard.vue";
+import { useProducts } from "~/composables/useProducts";
 
 const { products } = useProducts();
 </script>

@@ -9,6 +9,9 @@
     "test": "vitest --coverage"
   },
   "dependencies": {
+    "@vueuse/core": "11.0.3",
+    "@vueuse/integrations": "11.0.3",
+    "focus-trap": "7.5.4",
     "vue": "3.4.37"
   },
   "devDependencies": {

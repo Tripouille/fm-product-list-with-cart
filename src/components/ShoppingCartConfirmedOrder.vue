@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ShoppingCartOrder } from "@/repositories/shoppingCartRepository";
-import { formatPrice } from "@/utils/format";
 import { computed } from "vue";
+import { ShoppingCartOrder } from "~/repositories/shoppingCartRepository";
+import { formatPrice } from "~/utils/format";
 
 const props = defineProps<ShoppingCartOrder>();
 

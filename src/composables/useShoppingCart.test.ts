@@ -1,10 +1,10 @@
-import { AppRepositories } from "@/repositories/appRepositories";
-import { InMemoryShoppingCartRepository } from "@/repositories/inMemoryShoppingCartRepository";
+import { beforeEach, describe, expect, test } from "vitest";
+import { AppRepositories } from "~/repositories/appRepositories";
+import { InMemoryShoppingCartRepository } from "~/repositories/inMemoryShoppingCartRepository";
 import {
   ShoppingCartOrder,
   ShoppingCartProduct,
-} from "@/repositories/shoppingCartRepository";
-import { beforeEach, describe, expect, test } from "vitest";
+} from "~/repositories/shoppingCartRepository";
 import { useShoppingCart } from "./useShoppingCart";
 
 let appRepositories: Pick<AppRepositories, "shoppingCartRepository">;

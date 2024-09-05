@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useShoppingCart } from "@/composables/useShoppingCart";
-import { formatPrice } from "@/utils/format";
 import { computed } from "vue";
+import { useShoppingCart } from "~/composables/useShoppingCart";
+import { formatPrice } from "~/utils/format";
 import Modal from "./Modal.vue";
 import ShoppingCartConfirmedOrder from "./ShoppingCartConfirmedOrder.vue";
 

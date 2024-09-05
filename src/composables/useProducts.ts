@@ -1,6 +1,6 @@
-import { AppRepositories } from "@/repositories/appRepositories";
-import { Product } from "@/repositories/productRepository";
 import { readonly, ref } from "vue";
+import { AppRepositories } from "~/repositories/appRepositories";
+import { Product } from "~/repositories/productRepository";
 import { useAppRepositories } from "./useAppRepositories";
 
 const products = ref<Product[]>([]);

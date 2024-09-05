@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useShoppingCart } from "@/composables/useShoppingCart";
-import { Product } from "@/repositories/productRepository";
-import { Quantity } from "@/repositories/shoppingCartRepository";
-import { formatPrice } from "@/utils/format";
 import { computed } from "vue";
+import { useShoppingCart } from "~/composables/useShoppingCart";
+import { Product } from "~/repositories/productRepository";
+import { Quantity } from "~/repositories/shoppingCartRepository";
+import { formatPrice } from "~/utils/format";
 import AddToCartButton from "./AddToCartButton.vue";
 
 const props = defineProps<Product>();

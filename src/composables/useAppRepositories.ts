@@ -1,6 +1,6 @@
-import { AppRepositories } from "@/repositories/appRepositories";
-import { InMemoryProductRepository } from "@/repositories/inMemoryProductRepository";
-import { InMemoryShoppingCartRepository } from "@/repositories/inMemoryShoppingCartRepository";
+import { AppRepositories } from "~/repositories/appRepositories";
+import { InMemoryProductRepository } from "~/repositories/inMemoryProductRepository";
+import { InMemoryShoppingCartRepository } from "~/repositories/inMemoryShoppingCartRepository";
 
 const inMemoryAppRepositories: AppRepositories = {
   productRepository: new InMemoryProductRepository(),

@@ -1,11 +1,11 @@
-import { AppRepositories } from "@/repositories/appRepositories";
+import { computed, readonly, ref } from "vue";
+import { AppRepositories } from "~/repositories/appRepositories";
 import {
   Quantity,
   ShoppingCart,
   ShoppingCartOrder,
   ShoppingCartProduct,
-} from "@/repositories/shoppingCartRepository";
-import { computed, readonly, ref } from "vue";
+} from "~/repositories/shoppingCartRepository";
 import { useAppRepositories } from "./useAppRepositories";
 
 const shoppingCart = ref<ShoppingCart>([]);

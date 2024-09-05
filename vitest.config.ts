@@ -1,4 +1,4 @@
-import path from "node:path";
+import { fileURLToPath, URL } from "url";
 import { defineConfig } from "vitest/config";
 export default defineConfig({
   test: {
@@ -7,8 +7,11 @@ export default defineConfig({
     },
   },
   resolve: {
-    alias: {
-      "@": path.resolve("./src"),
-    },
+    alias: [
+      {
+        find: "~/",
+        replacement: fileURLToPath(new URL("./src/", import.meta.url)),
+      },
+    ],
   },
 });
