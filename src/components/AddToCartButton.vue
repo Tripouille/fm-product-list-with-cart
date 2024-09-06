@@ -120,4 +120,9 @@ function handleDecrementQuantity() {
     width: 20px;
   }
 }
+
+.add-to-cart-button:hover {
+  border-color: var(--clr-red);
+  color: var(--clr-red);
+}
 </style>
