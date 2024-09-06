@@ -23,7 +23,7 @@ function handleStartNewOrder() {
     <h2 class="text-preset-2">Your Cart ({{ totalQuantity }})</h2>
     <section class="empty-cart" v-if="!totalQuantity">
       <img src="/assets/images/illustration-empty-cart.svg" alt="empty cart" />
-      <p class="empty-car__message text-preset-4-bold">
+      <p class="empty-cart__message text-preset-4-bold">
         Your added items will appear here
       </p>
     </section>
