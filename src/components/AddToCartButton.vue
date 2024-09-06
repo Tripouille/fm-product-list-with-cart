@@ -28,24 +28,33 @@ function handleDecrementQuantity() {
     v-if="quantity"
     class="adjust-quantity-buttons-wrapper empty text-preset-4-bold"
   >
-    <button @click="handleDecrementQuantity">
-      <img
-        src="/assets/images/icon-decrement-quantity.svg"
-        alt="decrement quantity"
-        width="17"
-        height="17"
-      />
+    <button title="decrement quantity" @click="handleDecrementQuantity">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="2"
+        fill="none"
+        viewBox="0 0 10 2"
+      >
+        <path fill="#fff" d="M0 .375h10v1.25H0V.375Z" />
+      </svg>
     </button>
 
     <span> {{ quantity }}</span>
 
-    <button @click="handleIncrementQuantity">
-      <img
-        src="/assets/images/icon-increment-quantity.svg"
-        alt="increment quantity"
-        width="17"
-        height="17"
-      />
+    <button title="increment quantity" @click="handleIncrementQuantity">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="10"
+        fill="none"
+        viewBox="0 0 10 10"
+      >
+        <path
+          fill="#fff"
+          d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"
+        />
+      </svg>
     </button>
   </div>
 
@@ -102,8 +111,9 @@ function handleDecrementQuantity() {
     justify-content: center;
     cursor: pointer;
 
-    img {
-      width: 100%;
+    svg {
+      width: 17px;
+      height: 17px;
     }
   }
 }
@@ -115,7 +125,7 @@ function handleDecrementQuantity() {
   gap: var(--spc-100);
   border: 1px solid var(--clr-rose-400);
 
-  img {
+  svg {
     height: 20px;
     width: 20px;
   }
@@ -124,5 +134,14 @@ function handleDecrementQuantity() {
 .add-to-cart-button:hover {
   border-color: var(--clr-red);
   color: var(--clr-red);
+}
+
+.adjust-quantity-buttons-wrapper {
+  button:hover {
+    background: var(--clr-white);
+    svg path {
+      fill: var(--clr-red);
+    }
+  }
 }
 </style>
