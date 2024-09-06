@@ -123,5 +123,9 @@ function handleStartNewOrder() {
     width: 100%;
     text-align: center;
   }
+
+  .confirm-order-button:hover {
+    background-color: var(--clr-dark-red);
+  }
 }
 </style>
