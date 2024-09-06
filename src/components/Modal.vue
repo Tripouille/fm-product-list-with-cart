@@ -36,18 +36,29 @@ watch(
 
 <template>
   <Teleport to="#modal">
-    <section
-      v-if="modalIsOpen"
-      ref="target"
-      class="backdrop"
-      @click.self="() => deactivate()"
-    >
-      <slot />
-    </section>
+    <Transition>
+      <section
+        v-if="modalIsOpen"
+        ref="target"
+        class="backdrop"
+        @click.self="() => deactivate()"
+      >
+        <slot />
+      </section>
+    </Transition>
   </Teleport>
 </template>
 
 <style lang="scss" scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 .backdrop {
   position: fixed;
   top: 0;
