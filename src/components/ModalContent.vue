@@ -15,13 +15,6 @@ onMounted(() => {
 onUnmounted(() => {
   deactivate();
 });
-
-async function reveal() {
-  show.value = true
-
-  await nextTick()
-  activate()
-}
 </script>
 
 <template>
