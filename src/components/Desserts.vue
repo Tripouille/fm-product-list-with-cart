@@ -7,7 +7,7 @@ const { products } = useProducts();
 
 <template>
   <section>
-    <h1>Desserts</h1>
+    <h1 class="text-preset-1">Desserts</h1>
     <ul>
       <li v-for="product in products">
         <ProductCard :="product" />
