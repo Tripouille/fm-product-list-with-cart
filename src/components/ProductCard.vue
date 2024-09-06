@@ -82,6 +82,7 @@ section {
       border-radius: inherit;
 
       img {
+        border-radius: inherit;
         display: block;
       }
     }
