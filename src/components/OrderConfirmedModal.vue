@@ -132,6 +132,10 @@ const formattedTotalPrice = computed(() => {
       border-radius: 9999px;
       color: white;
     }
+
+    button:hover {
+      background-color: var(--clr-dark-red);
+    }
   }
 }
 
