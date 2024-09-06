@@ -29,14 +29,12 @@ function handleUpdateQuantity(quantity: Quantity) {
         <source
           media="(max-width: 375px)"
           :srcset="image.mobile"
-          :alt="name"
           height="212"
           width="327"
         />
         <source
           media="(max-width: 768px)"
           :srcset="image.tablet"
-          :alt="name"
           height="212"
           width="213"
         />
