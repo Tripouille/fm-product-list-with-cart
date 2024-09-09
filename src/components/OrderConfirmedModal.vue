@@ -67,7 +67,7 @@ const formattedTotalPrice = computed(() => {
 <style lang="scss" scoped>
 .order-confirmed-modal-content {
   width: min(37rem, 100%);
-  max-height: 43rem;
+  max-height: 38rem;
   padding: 1.25rem;
   border-radius: 0.75rem 0.75rem 0 0;
   background-color: var(--clr-white);
@@ -141,6 +141,7 @@ const formattedTotalPrice = computed(() => {
 
 @media (min-width: 376px) {
   .order-confirmed-modal-content {
+    max-height: 43rem;
     margin: var(--spc-500);
     padding: var(--spc-500);
     border-radius: 0.75rem;
